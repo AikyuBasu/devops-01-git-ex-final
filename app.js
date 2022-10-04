@@ -9,6 +9,8 @@ app.set('views', path.join(__dirname))
 app.set('view engine', 'hbs')
 
 app.get('/', function (req, res) {
+	const currentMonth = new Date().getMonth();
+	const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	res.render('./views/Home', {
 		title: 'My new title',
 		cards: [
@@ -30,7 +32,8 @@ app.get('/', function (req, res) {
 				desc: 'Visit ten places on our planet that are undergoing the biggest changes today',
 				imageUrl: 'https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg'
 			}
-		]
+		],
+		month: month_names[currentMonth]
 	 })
 });
 
